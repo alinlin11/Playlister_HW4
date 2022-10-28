@@ -69,8 +69,10 @@ function AuthContextProvider(props) {
         }
     }
 
-    auth.registerUser = async function(firstName, lastName, email, password, passwordVerify) {
-        const response = await api.registerUser(firstName, lastName, email, password, passwordVerify);      
+    auth.registerUser = async function (firstName, lastName, email, password, passwordVerify) {
+        // console.log("API CALL");
+        const response = await api.registerUser(firstName, lastName, email, password, passwordVerify);
+        // console.log("API CALL");
         if (response.status === 200) {
             authReducer({
                 type: AuthActionType.REGISTER_USER,
@@ -79,10 +81,13 @@ function AuthContextProvider(props) {
                 }
             })
             history.push("/login");
+
+            //log user in
+            auth.loginUser(email, password);
         }
     }
 
-    auth.loginUser = async function(email, password) {
+    auth.loginUser = async function (email, password) {
         const response = await api.loginUser(email, password);
         if (response.status === 200) {
             authReducer({
@@ -95,10 +100,10 @@ function AuthContextProvider(props) {
         }
     }
 
-    auth.logoutUser = async function() {
+    auth.logoutUser = async function () {
         const response = await api.logoutUser();
         if (response.status === 200) {
-            authReducer( {
+            authReducer({
                 type: AuthActionType.LOGOUT_USER,
                 payload: null
             })
@@ -106,13 +111,13 @@ function AuthContextProvider(props) {
         }
     }
 
-    auth.getUserInitials = function() {
+    auth.getUserInitials = function () {
         let initials = "";
         if (auth.user) {
             initials += auth.user.firstName.charAt(0);
             initials += auth.user.lastName.charAt(0);
         }
-        console.log("user initials: " + initials);
+        // console.log("user initials: " + initials);
         return initials;
     }
 

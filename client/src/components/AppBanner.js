@@ -84,7 +84,7 @@ export default function AppBanner() {
     
     function getAccountMenu(loggedIn) {
         let userInitials = auth.getUserInitials();
-        console.log("userInitials: " + userInitials);
+        //console.log("userInitials: " + userInitials);
         if (loggedIn) 
             return <div>{userInitials}</div>;
         else
