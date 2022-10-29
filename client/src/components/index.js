@@ -7,29 +7,33 @@ import LoginScreen from './LoginScreen'
 import MUIDeleteModal from './MUIDeleteModal'
 import MUIEditSongModal from './MUIEditSongModal'
 import MUIRemoveSongModal from './MUIRemoveSongModal'
+import MUIAlert from './MUIAlert'
 import RegisterScreen from './RegisterScreen'
 import SongCard from './SongCard'
 import SplashScreen from './SplashScreen'
 import Statusbar from './Statusbar'
 import WorkspaceScreen from './WorkspaceScreen'
+
 /*
     This serves as a module so that we can import
     all the other components as we wish.
     
     @author McKilla Gorilla
 */
-export { 
-    AppBanner,  
-    EditToolbar, 
+export {
+    AppBanner,
+    EditToolbar,
     HomeScreen,
     HomeWrapper,
-    ListCard, 
+    ListCard,
     LoginScreen,
     MUIDeleteModal,
     MUIEditSongModal,
     MUIRemoveSongModal,
+    MUIAlert,
     SongCard,
     RegisterScreen,
     SplashScreen,
-    Statusbar, 
-    WorkspaceScreen }
+    Statusbar,
+    WorkspaceScreen
+}
