@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import { useContext } from 'react'
 import GlobalStoreContext from '../store';
 import AuthContext from '../auth';
@@ -26,23 +25,30 @@ export default function MUIEditSongModal() {
     p: 4,
   };
 
+  const buttonStyle = {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+  };
+
+  function handleClose() {
+    let modal = document.getElementById("alert-modal");
+    modal.classList.remove("is-visible");
+
+    auth.noError();
+  }
+
   return (
     <Modal
       id="alert-modal"
-      // open={!auth.loggedIn}
+      open={auth.error != null}
       // onClose={handleClose}
       aria-labelledby="alert-modal-title"
       aria-describedby="alert-modal-description"
     >
       <Box sx={style}>
-        <Typography id="alert-modal-title" variant="h6" component="h2">
-          Error
-        </Typography>
-        <Typography id="aleet-modal-description" sx={{ mt: 2 }}>
-          <Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="error"> {auth.error} </Alert>
-          </Stack>
-        </Typography>
+        <Alert severity="error"> {auth.error} </Alert>
+        <Button variant="text" sx={buttonStyle} onClick={handleClose}>X</Button>
       </Box>
     </Modal >
 

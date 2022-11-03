@@ -78,12 +78,9 @@ loginUser = async (req, res) => {
                 email: existingUser.email
             }
         })
-
     } catch (err) {
         console.error(err);
         res.status(500).send();
-        let modal = document.getElementById("alert-modal");
-        modal.classList.add("is-visible");
     }
 }
 

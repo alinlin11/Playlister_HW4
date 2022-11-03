@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import AuthContext from '../auth'
 import Copyright from './Copyright'
+import MUIAlert from './MUIAlert'
 
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
@@ -118,6 +119,7 @@ export default function RegisterScreen() {
                         </Grid>
                     </Grid>
                 </Box>
+                <MUIAlert />
             </Box>
             <Copyright sx={{ mt: 5 }} />
         </Container>

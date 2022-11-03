@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import AuthContext from '../auth'
+import MUIAlert from './MUIAlert'
 
 import Copyright from './Copyright'
 
@@ -111,6 +112,7 @@ export default function LoginScreen() {
                     </Box>
                 </Box>
             </Grid>
+            <MUIAlert />
         </Grid>
     );
 }
