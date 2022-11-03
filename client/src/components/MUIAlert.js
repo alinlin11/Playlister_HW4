@@ -28,7 +28,8 @@ export default function MUIEditSongModal() {
 
   return (
     <Modal
-      open={!auth.loggedIn}
+      id="alert-modal"
+      // open={!auth.loggedIn}
       // onClose={handleClose}
       aria-labelledby="alert-modal-title"
       aria-describedby="alert-modal-description"
@@ -39,7 +40,7 @@ export default function MUIEditSongModal() {
         </Typography>
         <Typography id="aleet-modal-description" sx={{ mt: 2 }}>
           <Stack sx={{ width: '100%' }} spacing={2}>
-            <Alert severity="error">This is an error alert — check it out!</Alert>
+            <Alert severity="error"> {auth.error} </Alert>
           </Stack>
         </Typography>
       </Box>

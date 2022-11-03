@@ -9,7 +9,8 @@ import {
     LoginScreen,
     RegisterScreen,
     Statusbar,
-    WorkspaceScreen
+    WorkspaceScreen,
+    MUIAlert
 } from './components'
 /*
     This is our application's top-level component.
@@ -22,11 +23,11 @@ import {
   
   @author McKilla Gorilla
 */
-const App = () => {   
+const App = () => {
     return (
         <BrowserRouter>
             <AuthContextProvider>
-                <GlobalStoreContextProvider>              
+                <GlobalStoreContextProvider>
                     <AppBanner />
                     <Switch>
                         <Route path="/" exact component={HomeWrapper} />
@@ -34,10 +35,12 @@ const App = () => {
                         <Route path="/register/" exact component={RegisterScreen} />
                         <Route path="/playlist/:id" exact component={WorkspaceScreen} />
                     </Switch>
+                    <MUIAlert>
+                    </MUIAlert>
                     <Statusbar />
                 </GlobalStoreContextProvider>
             </AuthContextProvider>
-        </BrowserRouter>
+        </BrowserRouter >
     )
 }
 

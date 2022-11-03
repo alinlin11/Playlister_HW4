@@ -32,16 +32,16 @@ function WorkspaceScreen() {
 
     //useEffect to use history.push to homescreen if store is null || or if logged in and has no current list
     //to login screen if logged out
-    useEffect(() => {
-        console.log("USE EFFECT CALL");
-        if (!auth.loggedIn) {
-            store.history.push("/login/");
-        }
+    // useEffect(() => {
+    //     console.log("USE EFFECT CALL");
+    //     if (!auth.loggedIn) {
+    //         store.history.push("/login/");
+    //     }
 
-        else if (auth.loggedIn && store.currentList == null) {
-            store.history.push("/");
-        }
-    });
+    //     else if (auth.loggedIn && store.currentList == null) {
+    //         store.history.push("/");
+    //     }
+    // });
 
     return (
         <Box>

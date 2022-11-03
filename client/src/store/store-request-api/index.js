@@ -36,7 +36,7 @@ export const getPlaylistPairs = () => api.get(`/playlistpairs/`)
 export const updatePlaylistById = (id, playlist) => {
     return api.put(`/playlist/${id}`, {
         // SPECIFY THE PAYLOAD
-        playlist : playlist
+        playlist: playlist
     })
 }
 

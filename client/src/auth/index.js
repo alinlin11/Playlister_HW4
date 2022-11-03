@@ -16,7 +16,8 @@ export const AuthActionType = {
 function AuthContextProvider(props) {
     const [auth, setAuth] = useState({
         user: null,
-        loggedIn: false
+        loggedIn: false,
+        // error: null
     });
     const history = useHistory();
 
@@ -30,25 +31,29 @@ function AuthContextProvider(props) {
             case AuthActionType.GET_LOGGED_IN: {
                 return setAuth({
                     user: payload.user,
-                    loggedIn: payload.loggedIn
+                    loggedIn: payload.loggedIn,
+                    // error: null
                 });
             }
             case AuthActionType.LOGIN_USER: {
                 return setAuth({
                     user: payload.user,
-                    loggedIn: true
+                    loggedIn: true,
+                    // error: null
                 })
             }
             case AuthActionType.LOGOUT_USER: {
                 return setAuth({
                     user: null,
-                    loggedIn: false
+                    loggedIn: false,
+                    // error: null
                 })
             }
             case AuthActionType.REGISTER_USER: {
                 return setAuth({
                     user: payload.user,
-                    loggedIn: true
+                    loggedIn: true,
+                    // error: null
                 })
             }
             default:
@@ -85,7 +90,13 @@ function AuthContextProvider(props) {
             //log user in
             auth.loginUser(email, password);
         }
+
     }
+
+    // auth.showAlertModal = fuction() {
+    //     let modal = document.getElementById("alert-modal");
+    //     modal.classList.add("is-visible");
+    // }
 
     auth.loginUser = async function (email, password) {
         const response = await api.loginUser(email, password);
@@ -93,7 +104,8 @@ function AuthContextProvider(props) {
             authReducer({
                 type: AuthActionType.LOGIN_USER,
                 payload: {
-                    user: response.data.user
+                    user: response.data.user,
+                    // error: response.errorMessage
                 }
             })
             history.push("/");
@@ -105,7 +117,8 @@ function AuthContextProvider(props) {
         if (response.status === 200) {
             authReducer({
                 type: AuthActionType.LOGOUT_USER,
-                payload: null
+                payload: null,
+                // error: response.errorMessage
             })
             history.push("/");
         }
