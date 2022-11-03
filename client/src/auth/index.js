@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom'
 import api from './auth-request-api'
+import jsTPS from '../common/jsTPS'
 
 const AuthContext = createContext();
 console.log("create AuthContext: " + AuthContext);
@@ -12,6 +13,8 @@ export const AuthActionType = {
     LOGOUT_USER: "LOGOUT_USER",
     REGISTER_USER: "REGISTER_USER"
 }
+
+const tps = new jsTPS();
 
 function AuthContextProvider(props) {
     const [auth, setAuth] = useState({
@@ -122,6 +125,8 @@ function AuthContextProvider(props) {
             })
             history.push("/");
         }
+        tps.clearAllTransactions();
+        // console.log("TRANSACTIONS CLEAR");
     }
 
     auth.getUserInitials = function () {
