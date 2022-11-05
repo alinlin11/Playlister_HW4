@@ -98,6 +98,7 @@ getPlaylistById = async (req, res) => {
                 }
                 else {
                     console.log("incorrect user!");
+                    history.push("/");
                     return res.status(400).json({ success: false, description: "authentication error" });
                 }
             });

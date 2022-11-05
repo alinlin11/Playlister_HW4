@@ -379,8 +379,12 @@ function GlobalStoreContextProvider(props) {
                     history.push("/playlist/" + playlist._id);
                 }
             }
+            else {
+                history.push("/");
+            }
         }
         asyncSetCurrentList(id);
+        console.log("CURRENT LIST");
     }
 
     store.getPlaylistSize = function () {
