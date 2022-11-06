@@ -513,6 +513,10 @@ function GlobalStoreContextProvider(props) {
     store.canClose = function () {
         return (store.currentList !== null);
     }
+    store.modalOpen = function () {
+        console.log(store.currentModal == CurrentModal.NONE);
+        return store.currentModal != CurrentModal.NONE;
+    }
 
     // THIS FUNCTION ENABLES THE PROCESS OF EDITING A LIST NAME
     store.setIsListNameEditActive = function () {
